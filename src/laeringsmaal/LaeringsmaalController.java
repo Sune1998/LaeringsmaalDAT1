@@ -7,12 +7,12 @@ import model.Sporgsmaal;
 
 public class LaeringsmaalController {
 
-    private int i1 = 0;
-    private int j1 = 0;
+    private int qustion = 0;
+    private int spm1 = 0;
     Emner emner = new Emner();
     Sporgsmaal q = new Sporgsmaal();
-   private int j2 = q.getAlleSporgsmaal().size();
-    private int i2 = emner.getEmner().length;
+   private int spm = q.getAlleSporgsmaal().size();
+    private int qustion2 = emner.getEmner().length;
 
 
 
@@ -24,39 +24,43 @@ public class LaeringsmaalController {
     TextArea spoergsmaalTextArea;
 
     @FXML
+    //indlæser data
     private void indlaes() {
-        if (i1>=0 || i1<=i2) {
-            System.out.println(emner.getEmne(i1));
-            emneTextField.setText(emner.getEmne(i1));
-            if(j1>=0 ||j1<j2) {
-            spoergsmaalTextArea.setText(q.getSporgsmaal(i1) + "\n");}
+        if (qustion>=0 || qustion<=qustion2) {
+            System.out.println(emner.getEmne(qustion));
+            emneTextField.setText(emner.getEmne(qustion));
+            if(spm1>=0 ||spm1<spm) {
+            spoergsmaalTextArea.setText(q.getSporgsmaal(spm1) + "\n");}
         }
 
     }
 
     @FXML
+    //går vidre til næste spørgsmål
     private void naeste() {
-        if (j1<j2-1) {
-            i1++;
-            j1++;
+        if (spm1<spm-1) {
+            qustion++;
+            spm1++;
             indlaes();
         }
     }
 
     @FXML
+    // går tilbage til forige spørgsmål
     private void forrige() {
-        if (j1<0 && i1<0) {
-            i1--;
-            j1--;
+        if (spm1>0 && qustion>0) {
+            qustion--;
+            spm1--;
             emneTextField.setText("");
             indlaes();
         }
     }
 
     @FXML
+    // Gemmer indput.
     private void gem() {
-        emner.setEmne(i1, emneTextField.getText());
-        q.setSporgsmaal(j1, spoergsmaalTextArea.getText());
+        emner.setEmne(qustion, emneTextField.getText());
+        q.setSporgsmaal(spm1, spoergsmaalTextArea.getText());
     }
 
 }
