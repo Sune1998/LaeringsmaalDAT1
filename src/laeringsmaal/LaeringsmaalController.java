@@ -7,9 +7,12 @@ import model.Sporgsmaal;
 
 public class LaeringsmaalController {
 
-    private int i = 0;
+    private int i1 = 0;
     Emner emner = new Emner();
     Sporgsmaal q = new Sporgsmaal();
+    private int j = q.getAlleSporgsmaal().size();
+
+
 
     @FXML
     TextField emneTextField;
@@ -19,20 +22,22 @@ public class LaeringsmaalController {
 
     @FXML
     private void indlaes() {
-        System.out.println(emner.getEmne(i));
-        emneTextField.setText(emner.getEmne(i));
-        spoergsmaalTextArea.setText(q.getSporgsmaal(i) + "\n");
+        if (i1>=0 || i1>=10) {
+            System.out.println(emner.getEmne(i1));
+            emneTextField.setText(emner.getEmne(i1)1);
+            spoergsmaalTextArea.setText(q.getSporgsmaal(i1) + "\n");
+        }
     }
 
     @FXML
     private void naeste() {
-        i++;
+        i1++;
         indlaes();
     }
 
     @FXML
     private void forrige() {
-        i--;
+        i1--;
         emneTextField.setText("");
         indlaes();
     }

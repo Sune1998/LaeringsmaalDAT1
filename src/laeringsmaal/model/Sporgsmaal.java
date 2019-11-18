@@ -22,7 +22,8 @@ public class Sporgsmaal {
     }
 
     
-    public ArrayList<String> getAlleSporgsmaal() {
+    public ArrayList<String> getAlleSporgsmaal()
+    {
         return alleSporgsmaal;
     }
 
