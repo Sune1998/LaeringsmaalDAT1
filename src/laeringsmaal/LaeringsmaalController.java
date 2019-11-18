@@ -58,7 +58,7 @@ public class LaeringsmaalController {
 
     @FXML
     // Gemmer indput.
-    private void gem() {
+    private void gem(){
         emner.setEmne(qustion, emneTextField.getText());
         q.setSporgsmaal(spm1, spoergsmaalTextArea.getText());
     }
